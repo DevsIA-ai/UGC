@@ -1436,6 +1436,52 @@
   closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
   function closeMobile() { mobileMenu.classList.remove('open'); }
 
+  // ── Captura primer frame en iOS ──────────────────────────────────────
+  // iOS Safari no muestra el primer frame sin interacción.
+  // Solución: cargar el video muteado/autoplay solo para capturar el frame
+  // en un canvas, usarlo como poster, luego pausar y silenciar de nuevo.
+  function capturarPrimerFrame(video) {
+    // Si ya tiene poster o ya se procesó, no hacer nada
+    if (video.dataset.posterCargado) return;
+    video.dataset.posterCargado = '1';
+
+    const canvas = document.createElement('canvas');
+    const capturar = () => {
+      if (video.readyState >= 2) { // HAVE_CURRENT_DATA
+        canvas.width  = video.videoWidth  || 320;
+        canvas.height = video.videoHeight || 568;
+        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+        video.poster = canvas.toDataURL('image/jpeg', 0.8);
+        video.pause();
+        video.muted = false;
+        video.currentTime = 0;
+      }
+    };
+    video.muted = true;
+    video.playsInline = true;
+    video.play().then(() => {
+      // Esperar un frame para que haya imagen
+      requestAnimationFrame(() => {
+        requestAnimationFrame(capturar);
+      });
+    }).catch(() => {
+      // Si autoplay falla (ej. video no cargado aún), intentar con loadeddata
+      video.addEventListener('loadeddata', () => {
+        video.play().then(() => requestAnimationFrame(() => requestAnimationFrame(capturar))).catch(() => {});
+      }, { once: true });
+    });
+  }
+
+  document.querySelectorAll('.portfolio-item video').forEach(video => {
+    // En desktop con loadedmetadata ya funciona; en iOS usamos la captura
+    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      capturarPrimerFrame(video);
+    } else {
+      // Desktop: solo asegurarse que no esté muteado
+      video.muted = false;
+    }
+  });
+
   // Play / Pausa en videos del portfolio
   function toggleVideo(item) {
     const video = item.querySelector('video');
@@ -1445,14 +1491,15 @@
         const v = el.querySelector('video');
         if (v && !v.paused) { v.pause(); el.classList.remove('playing'); }
       });
-      video.muted = false; // asegura que el audio esté activo
+      video.muted = false;
+      video.currentTime = video.currentTime; // fuerza estado
       video.play();
       item.classList.add('playing');
     } else {
       video.pause();
       item.classList.remove('playing');
     }
-    video.onended = () => item.classList.remove('playing');
+    video.onended = () => { item.classList.remove('playing'); video.currentTime = 0; };
   }
 
   // Formulario WhatsApp — cambia TU_NUMERO por tu número con código de país, ej: 573001234567

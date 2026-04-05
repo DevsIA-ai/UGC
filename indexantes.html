@@ -958,6 +958,52 @@
     .portfolio-grid { grid-template-columns: 1fr 1fr; }
     .photo-grid { grid-template-columns: repeat(2, 1fr); }
   }
+  /* FORMULARIO CONTACTO */
+  #contact { background: var(--cream); text-align: center; }
+  .contact-inner { max-width: 680px; margin: 0 auto; }
+  .contact-subtitle {
+    font-size: 0.9rem; font-weight: 300; color: var(--mid);
+    line-height: 1.8; margin: 1.5rem 0 3rem;
+  }
+  .contact-form { text-align: left; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.2rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+  .form-group label {
+    font-size: 0.6rem; font-weight: 400; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--mid);
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.85rem; font-weight: 300;
+    color: var(--dark); background: transparent;
+    border: none; border-bottom: 1px solid var(--nude);
+    padding: 0.7rem 0; outline: none;
+    transition: border-color 0.3s;
+    width: 100%;
+  }
+  .form-group select { cursor: pointer; }
+  .form-group textarea { resize: none; border: 1px solid var(--nude); padding: 0.8rem; border-radius: 2px; margin-top: 0.2rem; }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--terracotta); }
+  .form-group textarea:focus { border-color: var(--terracotta); }
+  .wa-btn {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    margin-top: 2rem;
+    background: #25D366; color: #fff;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem; font-weight: 400; letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border: none; cursor: pointer;
+    padding: 1rem 2.5rem; border-radius: 2px;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .wa-btn:hover { background: #1ebe5d; transform: translateY(-2px); }
+  @media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -1028,6 +1074,12 @@
         <a href="#contact" title="Contacto">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/>
+          </svg>
+        </a>
+        <a href="https://wa.me/TU_NUMERO" target="_blank" title="WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.978-1.413A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.952 7.952 0 01-4.054-1.107l-.29-.173-3.002.853.881-2.924-.19-.302A7.952 7.952 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z"/>
           </svg>
         </a>
       </div>
@@ -1107,7 +1159,7 @@
     <!-- VIDEO 1 — cambia "tu-video1.mp4" por el nombre de tu archivo -->
     <div class="portfolio-item reveal" onclick="toggleVideo(this)">
       <div class="portfolio-thumb">
-        <video preload="auto" playsinline muted>
+        <video preload="auto" playsinline>
           <source src="ugc/1.mp4" type="video/mp4">
         </video>
         <div class="vid-overlay">
@@ -1123,7 +1175,7 @@
     <!-- VIDEO 2 -->
     <div class="portfolio-item reveal reveal-delay-1" onclick="toggleVideo(this)">
       <div class="portfolio-thumb">
-        <video preload="auto" playsinline muted>
+        <video preload="auto" playsinline>
           <source src="ugc/2.mp4" type="video/mp4">
         </video>
         <div class="vid-overlay">
@@ -1139,7 +1191,7 @@
     <!-- VIDEO 3 -->
     <div class="portfolio-item reveal reveal-delay-2" onclick="toggleVideo(this)">
       <div class="portfolio-thumb">
-        <video preload="auto" playsinline muted>
+        <video preload="auto" playsinline>
           <source src="ugc/3.mp4" type="video/mp4">
         </video>
         <div class="vid-overlay">
@@ -1155,7 +1207,7 @@
     <!-- VIDEO 4 -->
     <div class="portfolio-item reveal" onclick="toggleVideo(this)">
       <div class="portfolio-thumb">
-        <video preload="auto" playsinline muted>
+        <video preload="auto" playsinline>
           <source src="ugc/4.mp4" type="video/mp4">
         </video>
         <div class="vid-overlay">
@@ -1171,7 +1223,7 @@
     <!-- VIDEO 5 -->
     <div class="portfolio-item reveal reveal-delay-1" onclick="toggleVideo(this)">
       <div class="portfolio-thumb">
-        <video preload="auto" playsinline muted>
+        <video preload="auto" playsinline>
           <source src="tu-video5.mp4" type="video/mp4">
         </video>
         <div class="vid-overlay">
@@ -1187,7 +1239,7 @@
     <!-- VIDEO 6 -->
     <div class="portfolio-item reveal reveal-delay-2" onclick="toggleVideo(this)">
       <div class="portfolio-thumb">
-        <video preload="auto" playsinline muted>
+        <video preload="auto" playsinline>
           <source src="tu-video6.mp4" type="video/mp4">
         </video>
         <div class="vid-overlay">
@@ -1333,23 +1385,39 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-inner">
-    <p class="section-label reveal">¿Listas para crear?</p>
+    <p class="section-label reveal">¿Lista para crear?</p>
     <h2 class="section-title reveal">¡Trabajemos<br><em>Juntas</em>!</h2>
-    <p class="contact-subtitle reveal">¿Tienes una marca y quieres contenido UGC auténtico que conecte con tus consumidores? Escríbeme y cuéntame sobre tu proyecto.</p>
-    <a href="/cdn-cgi/l/email-protection#3c5453505d7c5d4e5950554a5558555d525d125f5351" class="contact-email reveal"><span class="__cf_email__" data-cfemail="b2daddded3f2d3c0d7dedbc4dbd6dbd3dcd39cd1dddf">[email&#160;protected]</span></a>
-    <div class="contact-socials reveal">
-      <a href="#" target="_blank">
-        <div class="social-icon">📸</div>
-        Instagram
-      </a>
-      <a href="#" target="_blank">
-        <div class="social-icon">🎵</div>
-        TikTok
-      </a>
-      <a href="/cdn-cgi/l/email-protection#6f0700030e2f0e1d0a030619060b060e010e410c0002">
-        <div class="social-icon">✉</div>
-        Email
-      </a>
+    <p class="contact-subtitle reveal">Cuéntame sobre tu marca y tu proyecto. Te respondo por WhatsApp lo antes posible.</p>
+
+    <div class="contact-form reveal">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Tu nombre</label>
+          <input type="text" id="f-nombre" placeholder="Nombre o marca">
+        </div>
+        <div class="form-group">
+          <label>Tipo de contenido</label>
+          <select id="f-tipo">
+            <option value="">Selecciona...</option>
+            <option>Video 15–60 seg</option>
+            <option>Video 1–3 min</option>
+            <option>Fotografía de producto</option>
+            <option>Pack completo</option>
+            <option>Canje</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Cuéntame de tu proyecto</label>
+        <textarea id="f-mensaje" rows="4" placeholder="¿Qué producto tienes? ¿Qué tipo de contenido necesitas? ¿Tienes alguna fecha límite?"></textarea>
+      </div>
+      <button class="wa-btn" onclick="enviarWhatsApp()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.978-1.413A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.952 7.952 0 01-4.054-1.107l-.29-.173-3.002.853.881-2.924-.19-.302A7.952 7.952 0 014 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z"/>
+        </svg>
+        Enviar por WhatsApp
+      </button>
     </div>
   </div>
 </section>
@@ -1373,22 +1441,33 @@
     const video = item.querySelector('video');
     if (!video) return;
     if (video.paused) {
-      // Pausa todos los demás videos primero
       document.querySelectorAll('.portfolio-item').forEach(el => {
         const v = el.querySelector('video');
-        if (v && !v.paused) {
-          v.pause();
-          el.classList.remove('playing');
-        }
+        if (v && !v.paused) { v.pause(); el.classList.remove('playing'); }
       });
+      video.muted = false; // asegura que el audio esté activo
       video.play();
       item.classList.add('playing');
     } else {
       video.pause();
       item.classList.remove('playing');
     }
-    // Cuando el video termina, vuelve al estado inicial
     video.onended = () => item.classList.remove('playing');
+  }
+
+  // Formulario WhatsApp — cambia TU_NUMERO por tu número con código de país, ej: 573001234567
+  function enviarWhatsApp() {
+    const numero = 'TU_NUMERO';
+    const nombre  = document.getElementById('f-nombre').value.trim();
+    const tipo    = document.getElementById('f-tipo').value;
+    const mensaje = document.getElementById('f-mensaje').value.trim();
+    if (!nombre || !mensaje) {
+      alert('Por favor completa tu nombre y cuéntame de tu proyecto.');
+      return;
+    }
+    const texto = `¡Hola Maria! 👋\n\n*Nombre/Marca:* ${nombre}\n*Tipo de contenido:* ${tipo || 'No especificado'}\n\n*Proyecto:*\n${mensaje}`;
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
+    window.open(url, '_blank');
   }
 
   // Scroll reveal — mostrar todo de inmediato y animar al hacer scroll
