@@ -469,7 +469,7 @@
   .portfolio-thumb {
     width: 100%;
     padding-bottom: 133%; /* proporción 3:4 igual que fotos */
-    background: var(--nude);
+    background: #1a1410;
     position: relative;
     overflow: hidden;
     border-radius: 2px;
@@ -922,8 +922,10 @@
 
   /* RESPONSIVE */
   @media (max-width: 1024px) {
+    #hero { grid-template-columns: 1fr; padding-top: 7rem; }
+    .hero-visual { display: none; }
     #about { grid-template-columns: 1fr; padding-top: 7rem; }
-    .about-img { max-width: 480px; margin: 0 auto; order: -1; }
+    .about-img { max-width: 400px; margin: 0 auto; }
     .ugc-grid { grid-template-columns: 1fr 1fr; }
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
     .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
@@ -940,8 +942,7 @@
     .hamburger { display: flex; }
     .mobile-menu { display: flex; }
     section { padding: 5rem 1.5rem; }
-    #about { padding: 6rem 1.5rem 4rem; gap: 2rem; }
-    .about-img { max-width: 100%; width: 100%; }
+    #hero { padding: 6rem 1.5rem 4rem; }
     .ugc-grid { grid-template-columns: 1fr; }
     .stats-grid { grid-template-columns: 1fr 1fr; }
     .portfolio-grid { grid-template-columns: 1fr 1fr; }
@@ -950,12 +951,11 @@
     .contact-socials { gap: 1.5rem; }
     .portfolio-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
     .divider { margin: 0 1.5rem; width: calc(100% - 3rem); }
-    .about-actions { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
   }
 
   @media (max-width: 480px) {
     .stats-grid { grid-template-columns: 1fr; }
-    .portfolio-grid { grid-template-columns: 1fr 1fr; }
+    .portfolio-grid { grid-template-columns: 1fr; }
     .photo-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
@@ -1094,20 +1094,12 @@
 </section>
 
 <!-- PORTFOLIO VIDEOS -->
-<section id="portfolio">
-  <div class="portfolio-header">
-    <div>
-      <p class="section-label reveal">Mi trabajo</p>
-      <h2 class="section-title reveal">Videos <em>UGC</em></h2>
-    </div>
-    <p class="reveal" style="font-size:0.75rem; color:var(--mid); font-weight:300; max-width:280px; line-height:1.7; text-align:right;">Contenido exclusivo creado para que las marcas utilicen en sus redes sociales</p>
-  </div>
   <div class="portfolio-grid">
 
     <!-- VIDEO 1 — cambia "tu-video1.mp4" por el nombre de tu archivo -->
     <div class="portfolio-item reveal" onclick="toggleVideo(this)">
       <div class="portfolio-thumb">
-        <video preload="auto" playsinline muted>
+        <video preload="metadata" playsinline>
           <source src="ugc/1.mp4" type="video/mp4">
         </video>
         <div class="vid-overlay">
@@ -1123,7 +1115,7 @@
     <!-- VIDEO 2 -->
     <div class="portfolio-item reveal reveal-delay-1" onclick="toggleVideo(this)">
       <div class="portfolio-thumb">
-        <video preload="auto" playsinline muted>
+        <video preload="metadata" playsinline>
           <source src="ugc/2.mp4" type="video/mp4">
         </video>
         <div class="vid-overlay">
@@ -1139,7 +1131,7 @@
     <!-- VIDEO 3 -->
     <div class="portfolio-item reveal reveal-delay-2" onclick="toggleVideo(this)">
       <div class="portfolio-thumb">
-        <video preload="auto" playsinline muted>
+        <video preload="metadata" playsinline>
           <source src="ugc/3.mp4" type="video/mp4">
         </video>
         <div class="vid-overlay">
@@ -1155,7 +1147,7 @@
     <!-- VIDEO 4 -->
     <div class="portfolio-item reveal" onclick="toggleVideo(this)">
       <div class="portfolio-thumb">
-        <video preload="auto" playsinline muted>
+        <video preload="metadata" playsinline>
           <source src="ugc/4.mp4" type="video/mp4">
         </video>
         <div class="vid-overlay">
@@ -1171,7 +1163,7 @@
     <!-- VIDEO 5 -->
     <div class="portfolio-item reveal reveal-delay-1" onclick="toggleVideo(this)">
       <div class="portfolio-thumb">
-        <video preload="auto" playsinline muted>
+        <video preload="metadata" playsinline>
           <source src="tu-video5.mp4" type="video/mp4">
         </video>
         <div class="vid-overlay">
@@ -1187,7 +1179,7 @@
     <!-- VIDEO 6 -->
     <div class="portfolio-item reveal reveal-delay-2" onclick="toggleVideo(this)">
       <div class="portfolio-thumb">
-        <video preload="auto" playsinline muted>
+        <video preload="metadata" playsinline>
           <source src="tu-video6.mp4" type="video/mp4">
         </video>
         <div class="vid-overlay">
@@ -1201,7 +1193,6 @@
     </div>
 
   </div>
-</section>
 
 <!-- FOTOS -->
 <section id="photos">
