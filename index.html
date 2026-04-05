@@ -89,8 +89,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    padding: 8rem 3rem 4rem;
-    gap: 4rem;
+    padding: 5rem 3rem 2rem;
+    gap: 1rem;
     position: relative;
     overflow: hidden;
   }
@@ -111,7 +111,7 @@
     letter-spacing: 0.35em;
     text-transform: uppercase;
     color: var(--terracotta);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     opacity: 0;
     animation: fadeUp 0.8s 0.2s forwards;
   }
@@ -135,8 +135,8 @@
     letter-spacing: 0.3em;
     text-transform: uppercase;
     color: var(--mid);
-    margin-top: 2rem;
-    margin-bottom: 3rem;
+    margin-top: 1.2rem;
+    margin-bottom: 1.8rem;
     opacity: 0;
     animation: fadeUp 0.8s 0.6s forwards;
   }
@@ -161,24 +161,33 @@
 
   .hero-socials {
     display: flex;
-    gap: 1.5rem;
-    margin-top: 3rem;
+    gap: 1rem;
+    margin-top: 2rem;
     opacity: 0;
     animation: fadeUp 0.8s 1s forwards;
   }
   .hero-socials a {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--nude);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--mid);
     text-decoration: none;
-    transition: color 0.3s;
+    transition: border-color 0.3s, color 0.3s, background 0.3s;
+    font-size: 1rem;
   }
-  .hero-socials a:hover { color: var(--terracotta); }
+  .hero-socials a:hover {
+    border-color: var(--terracotta);
+    color: var(--terracotta);
+    background: var(--light-nude);
+  }
 
   .hero-visual {
     position: relative;
-    height: 600px;
+    height: 480px;
     opacity: 0;
     animation: fadeIn 1s 0.5s forwards;
   }
@@ -212,8 +221,8 @@
   .hero-img-accent {
     position: absolute;
     left: 0; bottom: 0;
-    width: 45%;
-    height: 50%;
+    width: 22%;
+    height: 24%;
     background: var(--light-nude);
     border-radius: 2px;
     border: 1px solid var(--nude);
@@ -221,7 +230,7 @@
     align-items: center;
     justify-content: center;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 0.85rem;
+    font-size: 0.65rem;
     color: var(--mid);
     letter-spacing: 0.05em;
   }
@@ -284,13 +293,26 @@
   }
   .section-title em { font-style: italic; color: var(--terracotta); }
 
-  /* SOBRE MI */
+  /* SOBRE MI (sección principal) */
   #about {
+    min-height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 6rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
     align-items: center;
+    padding: 7rem 3rem 5rem;
     background: var(--cream);
+  }
+  .about-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .about-actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2.5rem;
   }
   .about-img {
     position: relative;
@@ -302,9 +324,6 @@
     border-radius: 2px;
     position: relative;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
   .about-img-frame-inner {
     position: absolute;
@@ -331,7 +350,7 @@
     display: flex;
     gap: 0.75rem;
     flex-wrap: wrap;
-    margin: 2rem 0;
+    margin: 1.5rem 0 0;
   }
   .tag {
     font-size: 0.6rem;
@@ -348,7 +367,7 @@
     font-weight: 300;
     line-height: 1.9;
     color: var(--mid);
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
   }
 
   /* QUE ES UGC */
@@ -905,7 +924,7 @@
   @media (max-width: 1024px) {
     #hero { grid-template-columns: 1fr; padding-top: 7rem; }
     .hero-visual { display: none; }
-    #about { grid-template-columns: 1fr; }
+    #about { grid-template-columns: 1fr; padding-top: 7rem; }
     .about-img { max-width: 400px; margin: 0 auto; }
     .ugc-grid { grid-template-columns: 1fr 1fr; }
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
@@ -966,67 +985,66 @@
   <a href="#contact" onclick="closeMobile()">Contacto</a>
 </div>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-text">
-    <p class="hero-eyebrow">UGC Creator · Content Creator</p>
-    <h1 class="hero-name">
-      Maria<br><em>Zolares</em>
-    </h1>
-    <p class="hero-subtitle">Creadora de Contenido UGC</p>
-    <a href="#portfolio" class="hero-cta">Ver mi trabajo</a>
-    <div class="hero-socials">
-      <a href="#" target="_blank">Instagram</a>
-      <a href="#" target="_blank">TikTok</a>
-      <a href="#contact">Contáctame</a>
-    </div>
-  </div>
-  <div class="hero-visual">
-    <div class="hero-img-main">
-      <div class="placeholder-photo">
-        
-        <img src="ugc/fotoprincipal.png" alt="Areli Viridiana" style="width:100%;height:100%;object-fit:cover;">
-      </div>
-    </div>
-    <div class="hero-img-accent">
-      <span style="text-align:center; padding:1rem; font-size:0.8rem; color:var(--mid);">Lifestyle · Beauty<br>Fashion · Experiences</span>
-    </div>
-    <div class="hero-badge">
-      <span>UGC</span>
-      <span>✦</span>
-      <span>Creator</span>
-      <span>✦</span>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- SOBRE MI -->
+<!-- SOBRE MI (nueva sección principal) -->
 <section id="about">
-  <div class="about-img reveal">
-    <div class="about-img-frame">
-      <div class="about-img-frame-inner">
-        <img src="ugc/sobremi.png" alt="Areli Viridiana" style="width:100%;height:100%;object-fit:cover;">      </div>
-    </div>
-    <div class="about-deco"></div>
-  </div>
-  <div class="about-content">
-    <p class="section-label reveal">Conóceme</p>
-    <h2 class="section-title reveal">Sobre <em>mí</em></h2>
+  <div class="about-left reveal">
+    <!-- Encabezado arriba -->
+    <p class="hero-eyebrow">UGC Creator · Content Creator</p>
+    <h1 class="hero-name">Maria<br><em>Zolares</em></h1>
+    <p class="hero-subtitle">Creadora de Contenido UGC</p>
+
+    <!-- Tags -->
     <div class="about-tags reveal reveal-delay-1">
       <span class="tag">Lifestyle</span>
       <span class="tag">Beauty</span>
       <span class="tag">Fashion</span>
       <span class="tag">Experiences</span>
     </div>
+
+    <!-- Título sobre mí -->
+    <h2 class="section-title reveal" style="margin-top:2rem;">Sobre <em>mí</em></h2>
+
+    <!-- Texto -->
     <div class="about-text">
-      <p class="reveal reveal-delay-2">Soy maria zolares, creadora de contenido UGC apasionada por conectar marcas con sus consumidores de manera auténtica e impactante.</p>
+      <p class="reveal reveal-delay-2">Soy Maria Zolares, creadora de contenido UGC apasionada por conectar marcas con sus consumidores de manera auténtica e impactante.</p>
       <p class="reveal reveal-delay-3">Mi principal objetivo es que el contenido que creo genere valor, crecimiento y represente fielmente los valores de cada marca. Creo en la autenticidad como la herramienta más poderosa del marketing moderno.</p>
       <p class="reveal reveal-delay-4">Trabajo con marcas de lifestyle, belleza, moda y experiencias, adaptando mi creatividad y estilo a la estrategia de cada cliente para maximizar su impacto.</p>
     </div>
+
+    <!-- CTA + Redes al fondo -->
+    <div class="about-actions reveal">
+      <a href="#portfolio" class="hero-cta">Ver mi trabajo</a>
+      <div class="hero-socials">
+        <a href="#" target="_blank" title="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+          </svg>
+        </a>
+        <a href="#" target="_blank" title="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/>
+          </svg>
+        </a>
+        <a href="#contact" title="Contacto">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Imagen lado derecho -->
+  <div class="about-img reveal">
+    <div class="about-img-frame">
+      <div class="about-img-frame-inner">
+        <img src="ugc/sobremi.png" alt="Maria Zolares" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+    </div>
+    <div class="about-deco"></div>
   </div>
 </section>
+
 
 <!-- QUE ES UGC -->
 <section id="ugc-info">
@@ -1076,22 +1094,6 @@
 </section>
 
 <!-- PORTFOLIO VIDEOS -->
-<section id="portfolio">
-  <div class="portfolio-header">
-    <div>
-      <p class="section-label reveal">Mi trabajo</p>
-      <h2 class="section-title reveal">Videos <em>UGC</em></h2>
-    </div>
-    <p class="reveal" style="font-size:0.75rem; color:var(--mid); font-weight:300; max-width:280px; line-height:1.7; text-align:right;">Contenido exclusivo creado para que las marcas utilicen en sus redes sociales</p>
-  </div>
-<section id="portfolio">
-  <div class="portfolio-header">
-    <div>
-      <p class="section-label reveal">Mi trabajo</p>
-      <h2 class="section-title reveal">Videos <em>UGC</em></h2>
-    </div>
-    <p class="reveal" style="font-size:0.75rem; color:var(--mid); font-weight:300; max-width:280px; line-height:1.7; text-align:right;">Contenido exclusivo creado para que las marcas utilicen en sus redes sociales</p>
-  </div>
   <div class="portfolio-grid">
 
     <!-- VIDEO 1 — cambia "tu-video1.mp4" por el nombre de tu archivo -->
@@ -1191,8 +1193,6 @@
     </div>
 
   </div>
-</section>
-</section>
 
 <!-- FOTOS -->
 <section id="photos">
